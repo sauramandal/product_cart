@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery and Bootstrap JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+</head>
+<body>
+
+  <div class="container">
+    <% if(products.length > 0) { %>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Created On</th>
+            <th scope="col">Actions</th>
+          </th>
+        </thead>
+        <tbody>
+          <% products.forEach((product, index) => { %>
+            <tr>
+              <th scope="row"><%= product.id %></th>
+              <td><img src="public/assets/img/<%= product.product_image %>" height="42" width="42" alt=""></td>
+              <td><%= product.product_name %></td>
+              <td><%= product.product_description %></td>
+              <td><%= product.product_price %></td>
+              <td><%= product.created_at %></td>
+              <td>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+
+</body>
